@@ -1,0 +1,5 @@
+# GET https://pokeapi.co/api/v2/pokemon-form/?limit=5&offset=5"
+
+# GET https://pokeapi.co/api/v2/pokemon-form/17/
+GET https://pokeapi.co/api/v2/pokemon-form/19/
+
