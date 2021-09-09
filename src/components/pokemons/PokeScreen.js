@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useEffect } from 'react'
 import { useFetchPokes } from '../../hooks/useFetchPokes'
 import { pokeReducer } from '../../reducers/pokeReducer'
 
@@ -6,7 +6,7 @@ const init = () => ({
     data: [],
     loading: true,
     error: null,
-    url: `https://pokeapi.co/api/v2/pokemon-form/?limit=5&offset=5`
+    url: null,
 })
 export const PokeScreen = () => {
 
@@ -14,15 +14,13 @@ export const PokeScreen = () => {
     // const [state, dispatch] = useReducer(pokeReducer, {}, init)
 
     const { data, loading, error } = state;
-    console.log({ data, loading, error });
+    // console.log({ data, loading, error });
 
     
     const {results, next, previous } = data;
 
 
-    const handleNext = ()=>(
-        setState( state => ({...state, url: next}))
-    )
+    const handleNext = ()=>{}
 
 
     const handlePrevious = () =>{

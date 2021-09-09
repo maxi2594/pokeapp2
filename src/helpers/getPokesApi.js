@@ -1,6 +1,6 @@
-const defaultUrl = `https://pokeapi.co/api/v2/pokemon-form/?limit=5&offset=5`
+// const defaultUrl = `https://pokeapi.co/api/v2/pokemon-form/?limit=5&offset=5`
 
-export const getPokes = async ( url = defaultUrl) => {
+export const getPokes = async ( url ) => {
 
 
         try {
