@@ -2,17 +2,24 @@ import { getPokes } from "../helpers/getPokesApi";
 
 import React, { useEffect, useState } from 'react'
 
+const incialState = {
+    data: [],
+    loading: true,
+    error: null,
+}
+export const useFetchPokes = (  ) => {
+    
 
-export const useFetchPokes = ( incialState ) => {
-
+    const [url, setUrl] = useState(`https://pokeapi.co/api/v2/pokemon-form/?limit=5&offset=5`)
     const [state, setState] = useState(incialState);
 
+    const handleSetUrL = (url) => (
+        setUrl( url )
+    )
 
 
     useEffect(()=>{
-            
-            const url = state.url || (`https://pokeapi.co/api/v2/pokemon-form/?limit=5&offset=5`)
-            
+
             const data = getPokes(url);
                 data.then( pokes => (
                     setTimeout(()=>(setState({
@@ -28,9 +35,9 @@ export const useFetchPokes = ( incialState ) => {
                     })
                 })
     
-    }, [state.url] )
+    }, [url] )
 
-    return [state, setState];
+    return [state, handleSetUrL];
 }
 
     

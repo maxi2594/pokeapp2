@@ -1,52 +1,38 @@
-import React, { useReducer, useEffect } from 'react'
+import React, { useReducer, useEffect, useContext } from 'react'
+import { fetchPokes } from '../../actions/actions'
+import { pokeContext } from '../../context/pokeContext'
 import { useFetchPokes } from '../../hooks/useFetchPokes'
+// import { useFetchPokes } from '../../hooks/useFetchPokes'
 import { pokeReducer } from '../../reducers/pokeReducer'
+import { types } from '../../types/types'
+import { PokeList } from './PokeList'
 
-const init = () => ({
-    data: [],
-    loading: true,
-    error: null,
-    url: null,
-})
+
 export const PokeScreen = () => {
 
-    const [state, setState]= useFetchPokes(init);
-    // const [state, dispatch] = useReducer(pokeReducer, {}, init)
 
-    const { data, loading, error } = state;
-    // console.log({ data, loading, error });
-
+    const [state, handleSetUrL ] =  useFetchPokes();
+    const { data, loading, error} = state;
     
     const {results, next, previous } = data;
-
-
-    const handleNext = ()=>{}
-
-
-    const handlePrevious = () =>{
-
-    }
-
     return (
         <div>
+
             { (loading) ? 
                 (<h1>loading</h1>)
                  :
-                (<ul>
-                    {
-                        results.map( (elem) => (
-                            <li key={elem.name}>{elem.name}</li>
-                        ))
-                    }
-                </ul>)
+                (<PokeList results={results} />)
             }
 
-            <button onClick={ handleNext }
+            <button 
+            onClick={ ()=>handleSetUrL(next) }
             >
                  NEXT 
             </button>
 
-            <button onClick={ handlePrevious }> 
+            <button 
+            onClick={ ()=>handleSetUrL(previous) }
+            > 
                 PREVIOS 
             </button>
         </div>

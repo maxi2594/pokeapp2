@@ -13,7 +13,7 @@ export const DashBoardRoutes = () => {
             <div className="container-fluid">
                 <Switch>
 
-                    <Route exact path="/" component={ PokeScreen }/>
+                    <Route exact path="/" render={ ()=> <PokeScreen/> }/>
 
 
                     {/* <Route exact path="/heroe/:heroeId" component={ HeroesScreen }/> */}
