@@ -7,10 +7,10 @@ const incialState = {
     loading: true,
     error: null,
 }
-export const useFetchPokes = (  ) => {
+export const useFetchPokes = ( inicialUrl = `https://pokeapi.co/api/v2/pokemon-form/?limit=5&offset=5`  ) => {
     
 
-    const [url, setUrl] = useState(`https://pokeapi.co/api/v2/pokemon-form/?limit=5&offset=5`)
+    const [url, setUrl] = useState(inicialUrl)
     const [state, setState] = useState(incialState);
 
     const handleSetUrL = (url) => (

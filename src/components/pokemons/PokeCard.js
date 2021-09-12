@@ -1,39 +1,37 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useFetchPokes } from '../../hooks/useFetchPokes';
 
-export const PokeCard = ({character}) => {
+export const PokeCard = ({ url }) => {
 
-    const {poekeName, sprites :{ back_default }} = character;
-
+    const {state} = useFetchPokes(url)
+    
     return (
-        <div className="card col-sm-6 mb-2" style={{maxWidth: 540}} >
-            <h1>algoo</h1>
+        <>
+        {/* {
+        (loading)?
+
+        (<h1>loading</h1>)
+        :
+        (<div className="card col-sm-6 mb-2" style={{maxWidth: 540}} >
             <div className="row ">
                 <div className="col-md-4">
                     <img
                         src={back_default} 
                         className="card-img"
-                        alt={ poekeName }/>
+                        alt={ name }/>
                 </div>
                 <div className="col-md-8">
                     <div className="card-body">
     
-                        <h2> { poekeName } </h2>
-                        <hr></hr>
-                        {/* <h4> { alter_ego }</h4>
-    
-                        <div className="text-muted">
-                            { first_appearance }
-                        </div>
-    
-                        <Link 
-                            to={`/heroe/${ id }`}
-                        > Mas...</Link> */}
-    
+                        <h2> { name } </h2>
+                        <hr></hr>    
                     </div>
                 </div>
             </div>
-        </div>
-    )
+        </div>)
+        } */}
+    </>
+)
 }
 

@@ -1,34 +1,20 @@
-import React, { useContext, useEffect, useMemo } from 'react'
+import React, { useContext, useEffect, useMemo, useState } from 'react'
 import { pokeContext } from '../../context/pokeContext';
 import { getPokes } from '../../helpers/getPokesApi';
 import { useFetchPokes } from '../../hooks/useFetchPokes';
 import { PokeCard } from './PokeCard';
 
 
-export const PokeList = ({results}) => {
-
-    const characterList  = useMemo(() => [], []);
-
-
-    useEffect(() => {
-        results.map( elem => {
-            const poke = getPokes(elem.url);
-            poke.then( poke => {
-                const {name:poekeName, sprites } = poke
-                characterList.push({poekeName, sprites})
-            })
-        }
-        
-        )
-        console.log(characterList);
-    }, [results, characterList])
-
+export const PokeList =  ({results}) => {
+    console.log(results);
+   
+    
 
     return (
         <div>
             <ul>
                     {
-                        characterList.map( character => (
+                        results.map( character => (
                             <PokeCard {...character } />
                         ))
                     }
