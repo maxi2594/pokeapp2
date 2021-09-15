@@ -10,19 +10,17 @@ export const DashBoardRoutes = () => {
         <div>
             <Navbar/>
 
-            <div className="container-fluid">
                 <Switch>
 
-                    <Route exact path="/" render={ ()=> <PokeScreen/> }/>
+                    <Route exact path="/pokes" render={ ()=> <PokeScreen/> }/>
 
 
                     {/* <Route exact path="/heroe/:heroeId" component={ HeroesScreen }/> */}
                     {/* <Route exact path="/marvel" component={ MarvelScreen }/> */}
                     {/* <Route exact path="/search" component={ SearchScreen }/> */}
 
-                    {/* <Redirect to="/marvel"/> */}
+                    <Redirect to="/pokes"/>
                 </Switch>
             </div>
-        </div>
     )
 }
