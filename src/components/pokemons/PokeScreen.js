@@ -1,40 +1,81 @@
-import React, { useReducer, useEffect, useContext } from 'react'
-import { fetchPokes } from '../../actions/actions'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { pokeContext } from '../../context/pokeContext'
-import { useFetchPokes } from '../../hooks/useFetchPokes'
-// import { useFetchPokes } from '../../hooks/useFetchPokes'
-import { pokeReducer } from '../../reducers/pokeReducer'
-import { types } from '../../types/types'
+import { getCharactersData } from '../../helpers/getPokesApi'
+import { NavigateButtons } from '../UI/buttons/NavigateButtons'
+import { LoadIcon } from '../UI/loading/LoadIcon'
 import { PokeList } from './PokeList'
 
 
 export const PokeScreen = () => {
 
+    const styles = {
+        display: 'flex',
+        alignItems : 'center',
+        backgroundColor: 'rgb(43,47,51)',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        marginTop: '2rem',
+        width: '100%',
+        height: '100%'
+    }
 
-    const [state, handleSetUrL ] =  useFetchPokes();
+    const {state, handleSetUrL, stopLoading, startLoading } = useContext(pokeContext);
     const { data, loading, error} = state;
     
-    const {results, next, previous } = data;
-    return (
-        <div>
+    const {results, next, previous } = data
 
-            { (loading) ? 
-                (<h1>loading</h1>)
-                 :
-                (<PokeList results={results} />)
+    const [characters, setstate] = useState([])
+
+    const getData = useCallback(
+        async () => {
+            if (results) {
+                
+                const data =  await getCharactersData(results)
+                return data
             }
+                            
+        },
+        [results],
+    );
 
-            <button 
-            onClick={ ()=>handleSetUrL(next) }
-            >
-                 NEXT 
-            </button>
+    useEffect(() => {
+        startLoading()
+        getData().then( data => {
 
-            <button 
-            onClick={ ()=>handleSetUrL(previous) }
-            > 
-                PREVIOS 
-            </button>
+            setTimeout(() => {
+                
+                setstate( data )
+                stopLoading();
+            }, 1000);
+            
+        })
+    }, [getData])
+
+    return (
+        <div style={ styles }>
+            <NavigateButtons 
+                        handleSetUrL={ handleSetUrL }
+                        next={ next }
+                        previous={ previous }
+            />
+            { (loading) ? 
+                (<LoadIcon/>)
+                :
+                (<>
+                    
+                    <PokeList results={characters} />
+                    
+                </>
+                )
+            }
+            <NavigateButtons 
+                        handleSetUrL={ handleSetUrL }
+                        next={ next }
+                        previous={ previous }
+            />
+            { 
+                (error) && (alert( error ))
+            }
         </div>
     )
 }

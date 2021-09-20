@@ -6,6 +6,7 @@ export const NavigateButtons = ({
     previous
 }) => {
 
+
     const styles = {
         container: {
             display: 'flex',
@@ -31,14 +32,14 @@ export const NavigateButtons = ({
 
             <button 
                 style={ styles.button }
-                onClick={ ()=>handleSetUrL(previous) }
+                onClick={ ()=> handleSetUrL(previous) }
             > 
                 PREVIOS 
             </button>
 
             <button 
                 style={ styles.button }
-                onClick={ ()=>handleSetUrL(next) }
+                onClick={ ()=> handleSetUrL(next) }
             >
                 NEXT 
             </button>

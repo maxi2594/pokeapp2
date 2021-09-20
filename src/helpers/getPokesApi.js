@@ -2,25 +2,35 @@
 
 export const getPokes = async ( url ) => {
 
+    try 
+    {
+        const resp = await fetch(url)
+        const data = await resp.json();
+        return data
 
-        try {
-            
-            const resp = await fetch(url)
-            const data = await resp.json();
-            return data
+    } 
+    catch (error) 
+    {
+        console.log(error);
+    }
+        
+}
+export const getCharactersData = async (arr) => {
+    const fetchArr = arr.map(({url}) => fetch(url))
 
-        } 
-        catch (error) 
-        {
-            console.log(error);
-        }
+    try 
+    {
+        const promises = await Promise.all(fetchArr);
+        const result = await Promise.all(promises.map((resp) => resp.json()));
+        const data = await result;
+    
+        return data;
+
+    } 
+    catch (error) 
+    {
+       return new Error('fail to load api')
+    }
     
 
-        // const gifts = data.map( elem => ({
-
-        //     id: elem.id,
-        //     title: elem.title,  
-        //     url: elem.images?.downsized_medium.url,
-        // }));
-        
 }

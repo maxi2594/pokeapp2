@@ -1,24 +1,32 @@
-import React, { useContext, useEffect, useMemo, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { useCallback } from 'react';
 import { pokeContext } from '../../context/pokeContext';
-import { getPokes } from '../../helpers/getPokesApi';
+import { getCharactersData } from '../../helpers/getPokesApi';
 import { useFetchPokes } from '../../hooks/useFetchPokes';
 import { PokeCard } from './PokeCard';
 
 
-export const PokeList =  ({results}) => {
-    console.log(results);
-   
+export const PokeList = ({results}) => {
     
-
+    const styles = {
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+    }
     return (
-        <div>
-            <ul>
-                    {
-                        results.map( character => (
-                            <PokeCard {...character } />
-                        ))
-                    }
+            <ul style={ styles }>
+
+
+                {
+                    results &&
+                    (results.map( character => (
+                        <PokeCard 
+                            {...character }
+                            key={ character.name }
+                            />
+                    )))
+                }
             </ul>
-        </div>
     )
 }

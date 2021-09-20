@@ -3,41 +3,54 @@ import { getPokes } from "../helpers/getPokesApi";
 import React, { useEffect, useState } from 'react'
 
 const incialState = {
-    data: [],
+    data: {},
     loading: true,
     error: null,
 }
-export const useFetchPokes = ( inicialUrl = `https://pokeapi.co/api/v2/pokemon-form/?limit=5&offset=5`  ) => {
+export const useFetchPokes = ( inicialUrl  ) => {
     
 
     const [url, setUrl] = useState(inicialUrl)
     const [state, setState] = useState(incialState);
+    
+    
+    const handleSetUrL = (url) => (setUrl( url ))
 
-    const handleSetUrL = (url) => (
-        setUrl( url )
-    )
-
+    const stopLoading = () => {
+        setState( s => ({
+            ...s,
+            loading: false
+        }))
+    }
+    const startLoading = () => {
+        setState( s => ({
+            ...s,
+            loading: true
+        }))
+    }
 
     useEffect(()=>{
+        
+        console.log(url);
+        const data = getPokes(url);
+            data.then( pokes => {
 
-            const data = getPokes(url);
-                data.then( pokes => (
-                    setTimeout(()=>(setState({
-                        data: pokes,
-                        loading: false,
-                    })), 1000)
-                    
-                ))
-                .catch( err => {
-                    setState({
-                        loading: false,
-                        error: err
-                    })
-                })
-    
+                setState( s => ({
+                    ...s,
+                    data: pokes
+                }))
+            })
+            .catch( err => {
+                setState(s =>({
+                    ...s,
+                    loading: false,
+                    error: err
+                }))
+            })
+
     }, [url] )
-
-    return [state, handleSetUrL];
+        
+    return [state, url, handleSetUrL, stopLoading,startLoading ];
 }
 
     
