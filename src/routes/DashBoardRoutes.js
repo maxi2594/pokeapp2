@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router';
+import { CharacterScreen } from '../components/pokemons/characterScreen/CharacterScreen';
 import { PokeScreen } from '../components/pokemons/PokeScreen';
 import { Navbar } from '../components/UI/NavBar';
 
@@ -13,6 +14,7 @@ export const DashBoardRoutes = () => {
                 <Switch>
 
                     <Route exact path="/pokes" render={ ()=> <PokeScreen/> }/>
+                    <Route exact path="/pokes/character/:id" render={ ()=> <CharacterScreen/>}/>
 
 
                     {/* <Route exact path="/heroe/:heroeId" component={ HeroesScreen }/> */}

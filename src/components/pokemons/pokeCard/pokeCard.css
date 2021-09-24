@@ -1,0 +1,21 @@
+.cardCenter {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(63, 67, 71);
+  border-radius: 100px;
+}
+.cardStyles {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border: 2px solid grey;
+  background-color: #fafafa;
+  max-width: 400px;
+  margin: 5px;
+  padding: 10px;
+}
+.cardImg {
+  width: "150px";
+  height: "150px";
+}

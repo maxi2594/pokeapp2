@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { getPokes } from '../../../helpers/getPokesApi'
 import  "./characterScreen.css";
+import { ImageContainer } from './ImageContainer';
 
 export const CharacterScreen = () => {
 
@@ -14,27 +15,28 @@ export const CharacterScreen = () => {
     useEffect(() => {
         
         const data = getPokes(`https://pokeapi.co/api/v2/pokemon-form/${ id }`)
-        data.then( data => setData( data ))
+        data.then( data => {
+            setData( data )
+        })
 
     }, [id])
 
-    console.log([...data?.sprites]);
-
     return (
-        <div className='flexContainer'>
-            <div className='imageContainer'>
-                <img 
-                    style={{width: 200}}
-                    src={ data.sprites.front_default}
-                    alt={ data.pokemon.name}
-                />
-                <div className="imageSelector">
-                    <ul>
-                        <button>hola</button>
-                    </ul>
+            data 
+            &&
+            (<div className='flexContainer'>
+
+                <ImageContainer data={data}/>
+
+                <div className='statsContainer'>
+                    <div className='stats'>
+                        <hr/>
+                        <h5> caracteristic : value</h5>
+                        <hr/>
+                    </div>
                 </div>
-                
             </div>
-        </div>
+            
+            )
     )
 }

@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { pokeContext } from '../../context/pokeContext';
 import { getCharactersData } from '../../helpers/getPokesApi';
 import { useFetchPokes } from '../../hooks/useFetchPokes';
-import { PokeCard } from './PokeCard';
+import { PokeCard } from './pokeCard/PokeCard';
 
 
 export const PokeList = ({results}) => {

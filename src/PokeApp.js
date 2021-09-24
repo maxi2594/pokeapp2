@@ -9,13 +9,20 @@ import { useFetchPokes } from './hooks/useFetchPokes';
 export const PokeApp = () => {
 
 
-    const inicialUrl = localStorage.getItem('url') && `https://pokeapi.co/api/v2/pokemon-form/?limit=5&offset=5`;
+    const inicialUrl = localStorage.getItem('url') || 
+    `https://pokeapi.co/api/v2/pokemon-form/?limit=5&offset=5`;
     
     const [ state, 
             url, 
             handleSetUrL, 
             stopLoading,
             startLoading ] =  useFetchPokes(inicialUrl);
+
+    useEffect(() => {
+
+        localStorage.setItem('url', url)
+        
+    }, [url])
 
     
     return (

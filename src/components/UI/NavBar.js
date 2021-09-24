@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, NavLink, useHistory } from 'react-router-dom'
+import { pokeContext } from '../../context/pokeContext'
 
 export const Navbar = () => {
 
-    const  history = useHistory(); 
+    const { handleSetUrL }=useContext(pokeContext)
+
+    const handleInico = () => {
+        handleSetUrL(`https://pokeapi.co/api/v2/pokemon-form/?limit=5&offset=5`);
+    }
 
 
     return (
@@ -23,9 +28,10 @@ export const Navbar = () => {
                         activeClassName="active"
                         className="nav-item nav-link" 
                         exact
-                        to="/marvel"
+                        to="/pokes"
+                        onClick={ handleInico }
                     >
-                        Marvel
+                        Inicio
                     </NavLink>
 
                     <NavLink 
