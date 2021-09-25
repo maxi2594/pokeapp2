@@ -21,7 +21,7 @@
   flex-wrap: wrap;
 }
 button {
-  padding: 4px;
+  padding: 5px;
   border-radius: 1rem;
   margin: 0.5rem;
   background-color: transparent;
@@ -43,9 +43,41 @@ button:hover {
   height: 100%;
   padding: 1rem;
 }
+
 .stats {
+  align-items: center;
+  border-bottom: 1px solid #fafafa;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   width: 100%;
   color: #fafafa;
   height: fit-content;
   padding: 1rem;
+  font-weight: 600;
+  font-size: 18px;
+}
+.stats > label {
+  margin-right: 2rem;
+}
+.stats > p {
+  display: flex;
+  align-content: center;
+  margin-bottom: 0px;
+}
+.stats > button {
+  margin-left: 1rem;
+}
+.typeStacs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  background-color: red;
+}
+.typeStacs > .stats {
+  flex-direction: column;
+}
+.typeStacs > .stats > h3 {
+  text-align: center;
 }

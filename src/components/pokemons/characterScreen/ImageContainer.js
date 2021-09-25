@@ -23,6 +23,7 @@ export const ImageContainer = ({ data }) => {
                         sprites.map( elem => (
                             elem.src ?
                             (<button
+                                key={elem.sprite}
                                 onClick={ ()=> setImageSrc(elem.src)}
                             >{elem.sprite}</button>)
                             :

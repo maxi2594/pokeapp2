@@ -11,7 +11,7 @@ export const getPokes = async ( url ) => {
     } 
     catch (error) 
     {
-        console.log(error);
+        alert(`Error: ${ error }`)
     }
         
 }
