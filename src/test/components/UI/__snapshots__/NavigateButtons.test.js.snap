@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test in <NavigateButtons/> should be shown propperly 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "rgb(43,47,51)",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "marginBottom": "2rem",
+      "marginTop": "1rem",
+    }
+  }
+>
+  <button
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "border": "2px solid grey",
+        "color": "grey",
+        "height": "2rem",
+        "marginLeft": "10px",
+        "marginRight": "10px",
+        "width": "5rem",
+      }
+    }
+  >
+    PREVIOS
+  </button>
+  <button
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "border": "2px solid grey",
+        "color": "grey",
+        "height": "2rem",
+        "marginLeft": "10px",
+        "marginRight": "10px",
+        "width": "5rem",
+      }
+    }
+  >
+    NEXT
+  </button>
+</div>
+`;

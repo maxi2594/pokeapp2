@@ -34,14 +34,6 @@ export const Navbar = () => {
                         Inicio
                     </NavLink>
 
-                    <NavLink 
-                        activeClassName="active"
-                        className="nav-item nav-link" 
-                        exact
-                        to="/dc"
-                    >
-                        DC
-                    </NavLink>
 
                     <NavLink 
                         activeClassName="active"

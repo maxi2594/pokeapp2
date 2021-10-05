@@ -1,8 +1,6 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import { useCallback } from 'react';
-import { pokeContext } from '../../context/pokeContext';
-import { getCharactersData } from '../../helpers/getPokesApi';
-import { useFetchPokes } from '../../hooks/useFetchPokes';
+import React from 'react';
+import PropTypes from "prop-types";
+
 import { PokeCard } from './pokeCard/PokeCard';
 
 
@@ -29,4 +27,8 @@ export const PokeList = ({results}) => {
                 }
             </ul>
     )
+}
+
+PokeList.propTypes = {
+    results: PropTypes.array.isRequired
 }
