@@ -10,7 +10,7 @@ export const PokeScreen = () => {
 
     const styles = {
         display: 'flex',
-        alignItems : 'center',
+        alignItems: 'center',
         backgroundColor: 'rgb(43,47,51)',
         justifyContent: 'center',
         flexDirection: 'column',
@@ -19,62 +19,62 @@ export const PokeScreen = () => {
         height: '100%'
     }
 
-    const {state, handleSetUrL, stopLoading, startLoading } = useContext(pokeContext);
-    const { data, loading, error} = state;
-    
-    const {results, next, previous } = data
+    const { state, handleSetUrL, stopLoading, startLoading } = useContext(pokeContext);
+    const { data, loading, error } = state;
+
+    const { results, next, previous } = data
 
     const [characters, setstate] = useState([])
 
     const getData = useCallback(
         async () => {
             if (results) {
-                
-                const data =  await getCharactersData(results)
+
+                const data = await getCharactersData(results)
                 return data
             }
-                            
         },
         [results],
     );
 
+
     useEffect(() => {
         startLoading()
-        getData().then( data => {
+        getData().then(data => {
 
             setTimeout(() => {
-                
-                setstate( data )
+
+                setstate(data)
                 stopLoading();
             }, 1000);
-            
+
         })
     }, [getData])
 
     return (
-        <div style={ styles }>
-            <NavigateButtons 
-                        handleSetUrL={ handleSetUrL }
-                        next={ next }
-                        previous={ previous }
+        <div style={styles}>
+            <NavigateButtons
+                handleSetUrL={handleSetUrL}
+                next={next}
+                previous={previous}
             />
-            { (loading) ? 
-                (<LoadIcon/>)
+            {(loading) ?
+                (<LoadIcon />)
                 :
                 (<>
-                    
+
                     <PokeList results={characters} />
-                    
+
                 </>
                 )
             }
-            <NavigateButtons 
-                        handleSetUrL={ handleSetUrL }
-                        next={ next }
-                        previous={ previous }
+            <NavigateButtons
+                handleSetUrL={handleSetUrL}
+                next={next}
+                previous={previous}
             />
-            { 
-                (error) && (alert( error ))
+            {
+                (error) && (alert(error))
             }
         </div>
     )

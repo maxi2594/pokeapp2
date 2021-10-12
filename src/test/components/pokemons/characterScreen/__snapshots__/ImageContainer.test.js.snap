@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test inj <ImageContainer/> should show properly 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "canGo": [Function],
+      "createHref": [Function],
+      "entries": Array [
+        Object {
+          "hash": "",
+          "key": "dze7bj",
+          "location": Object {
+            "key": "oa23iu",
+          },
+          "pathname": "/",
+          "search": "",
+        },
+      ],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "index": 0,
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "key": "dze7bj",
+        "location": Object {
+          "key": "oa23iu",
+        },
+        "pathname": "/",
+        "search": "",
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <ImageContainer
+    data={
+      Object {
+        "damage_relations": Object {
+          "double_damage_from": "somePokeDamage",
+        },
+        "is_battle_only": true,
+        "name": "somepokename",
+        "pokemon": Object {
+          "name": "somepokename",
+        },
+        "sprites": Object {
+          "front_default": "http://fakeUrl/image",
+        },
+        "types": Array [
+          Object {
+            "slot": 1,
+            "type": Object {
+              "name": "name",
+              "url": "https:/faakeUrl.com",
+            },
+          },
+          Object {
+            "slot": 2,
+            "type": Object {
+              "name": "name",
+              "url": "https:/faakeUrl.com",
+            },
+          },
+          Object {
+            "slot": 3,
+            "type": Object {
+              "name": "name",
+              "url": "https:/faakeUrl.com",
+            },
+          },
+        ],
+      }
+    }
+  />
+</Router>
+`;
