@@ -1,31 +1,50 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from "prop-types";
 import { getPokes } from '../../../helpers/getPokesApi'
+import { DamageStacs } from './stacs/DamageStacs';
 
 export const TypeStacs = ({ src }) => {
 
-    const [data, setdata] = useState({
+    const [state, setState] = useState({
         data: null,
         error: null
     })
+    const { data, error } = state;
 
-    // useEffect(() => {
-    //     getPokes(src).then(data => data.damage_relations.double_damage_from.map(elem=> console.log(elem)))
-    // }, [src]);
+
+    useEffect(() => {
+        try {
+            getPokes(src)
+                .then(data =>
+                    setState((s) => ({
+                        ...s,
+                        data: data
+                    }))
+                )
+
+        } catch (error) {
+            setState((s) => ({
+                ...s,
+                error: error
+            }))
+        }
+    }, [src]);
 
     return (
-        data ?
-            (<div className='typeStacs'>
-                <div className='stats'>
-                    <h3 style={{ width: '100%' }}>Damage Relations</h3>
-                    <label> Doble Damage From: </label>
-                    {/* {
-                    data.damage_relations.double_damage_from.map( damage => (
-                     <span>{damage.name}</span>       
-                    ))
-                } */}
-                </div>
-            </div>)
-            :
-            null
+        <div className='typeStacs'>
+            {
+                data &&
+                (
+                    <DamageStacs damage={data?.damage_relations} />
+                )
+            }
+            {
+                error && (<h2>{error}</h2>)
+            }
+        </div>
     )
+}
+
+TypeStacs.propTypes = {
+    src: PropTypes.string.isRequired
 }

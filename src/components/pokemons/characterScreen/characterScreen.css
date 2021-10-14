@@ -5,6 +5,11 @@
   height: 100%;
   background-color: transparent;
 }
+@media (max-width: 900px) {
+  .flexContainer {
+    flex-direction: column;
+  }
+}
 .imageContainer {
   align-items: center;
   display: flex;
@@ -30,9 +35,13 @@ button {
   transition: all 0.5s ease;
 }
 button:hover {
+  border: 2px solid #fafafa;
+  color: #fafafa;
+}
+button.active {
   background-color: #fafafa;
   border: 2px solid #fafafa;
-  color: rgb(43, 47, 51);
+  color: black;
 }
 .statsContainer {
   align-items: center;
@@ -80,4 +89,16 @@ button:hover {
 }
 .typeStacs > .stats > h3 {
   text-align: center;
+}
+.statsTitle {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .imageContainer,
+  .statsContainer {
+    width: 100%;
+  }
 }

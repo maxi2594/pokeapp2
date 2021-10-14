@@ -8,7 +8,7 @@ export const getPokes = async (url) => {
 
     }
     catch (error) {
-        alert(`Error: ${error}`)
+        return new Error('fail to load api')
     }
 }
 export const getCharactersData = async (arr) => {

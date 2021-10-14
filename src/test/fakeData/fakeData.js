@@ -57,8 +57,8 @@ export const data = {
         name: 'somepokename'
     },
     sprites: {
-        front_default: 'http://fakeUrl/image',
-        back_default: 'http://fakeUrl/image2',
+        front_default: 'http://fakeUrl/front_default',
+        back_default: 'http://fakeUrl/back_default',
 
     },
     damage_relations: {

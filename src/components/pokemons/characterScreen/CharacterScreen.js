@@ -9,17 +9,17 @@ import "./characterScreen.css";
 export const CharacterScreen = () => {
 
     const [data, setData] = useState(null)
-    const [typeStacs, settypeStacs] = useState({
-        show: true,
+    const [typeStacs, setTypeStacs] = useState({
+        type: '',
         src: ''
     })
 
     const { id } = useParams()
 
-    const handeSetTypeStac = (src) => {
-        settypeStacs(s => ({
-            ...s,
-            src
+    const handeSetTypeStac = ({ name, url }) => {
+        setTypeStacs(s => ({
+            type: name,
+            src: url
         }))
     }
 
@@ -28,6 +28,12 @@ export const CharacterScreen = () => {
         const data = getPokes(`https://pokeapi.co/api/v2/pokemon-form/${id}`)
         data.then(data => {
             setData(data)
+            const { types } = data;
+            setTypeStacs((s) => ({
+                ...s,
+                type: types[0]?.type.name,
+                src: types[0]?.type.url
+            }))
         })
 
     }, [id])
@@ -56,17 +62,15 @@ export const CharacterScreen = () => {
                         {
                             data.types.map(elem =>
                             (<button
+                                className={(typeStacs.type === elem.type.name) ? 'active' : ''}
                                 key={elem.slot}
-                                onClick={() => handeSetTypeStac(elem.type.url)}
+                                onClick={() => handeSetTypeStac(elem.type)}
                             >{elem.type.name}</button>)
                             )
                         }
                     </div>
                 </div>
-                {
-                    typeStacs.show && (<TypeStacs src={data.types[0].type.url} />)
-                }
-
+                <TypeStacs src={typeStacs.src} />
             </div>
         </div>
 
