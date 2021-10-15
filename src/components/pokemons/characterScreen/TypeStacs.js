@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from "prop-types";
+import PropTypes, { instanceOf } from "prop-types";
 import { getPokes } from '../../../helpers/getPokesApi'
 import { DamageStacs } from './stacs/DamageStacs';
 
@@ -9,7 +9,6 @@ export const TypeStacs = ({ src }) => {
         data: null,
         error: null
     })
-    const { data, error } = state;
 
 
     useEffect(() => {
@@ -33,13 +32,14 @@ export const TypeStacs = ({ src }) => {
     return (
         <div className='typeStacs'>
             {
-                data &&
-                (
-                    <DamageStacs damage={data?.damage_relations} />
-                )
+                (state.data) ?
+                (<DamageStacs damage={state.data?.damage_relations} />)
+                :
+                null
+                
             }
             {
-                error && (<h2>{error}</h2>)
+                state.error && (<h2>{state.error}</h2>)
             }
         </div>
     )

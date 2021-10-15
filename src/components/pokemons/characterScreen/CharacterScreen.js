@@ -47,7 +47,7 @@ export const CharacterScreen = () => {
 
             <div className='statsContainer'>
                 <div className='stats'>
-                    <label> name : </label>
+                    <label>name : </label>
                     <p data-testid="name">{data.name.toUpperCase()}</p>
                 </div>
 
@@ -57,7 +57,7 @@ export const CharacterScreen = () => {
                 </div>
 
                 <div className='stats'>
-                    <label>Types:</label>
+                    <label>  Types:</label>
                     <div>
                         {
                             data.types.map(elem =>

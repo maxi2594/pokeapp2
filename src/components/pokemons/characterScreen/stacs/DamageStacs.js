@@ -1,31 +1,30 @@
-import { element } from 'prop-types';
 import React from 'react'
+import PropTypes from 'prop-types';
+
+import { ExelColums } from '../../../commons/ExelColums';
 
 export const DamageStacs = ({ damage }) => {
 
-    let damageArr = Array.from(damage);
-    console.log(damageArr);
-
-    // ((obj) => {
-    //     for (const key in obj) {
-    //         if (obj.hasOwnProperty.call(obj, key)) {
-    //             const element = obj[key];
-    //             return (<span>{element}</span>)
-    //         }
-    //     }
-    // })(damage)
-
-
+    const damageArr = Object.entries(damage)
 
     return (
         <div className='typeStacs'>
             <div className='statsTitle'>
                 <h4>Damage Stacs</h4>
             </div>
-            <div>
-                {
-                }
-            </div>
+            {
+                damageArr.map( elem =>
+                    (<ExelColums
+                        key={elem[0]}
+                        item={elem[0]}
+                        values={elem[1]}
+                    />)    
+                )
+            }    
+                
         </div>
     )
+}
+DamageStacs.propTypes = {
+    damage: PropTypes.object.isRequired
 }

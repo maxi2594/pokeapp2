@@ -82,7 +82,8 @@ button.active {
   flex-direction: column;
   width: 100%;
   height: fit-content;
-  background-color: red;
+  background-color: transparent;
+  color: #fafafa;
 }
 .typeStacs > .stats {
   flex-direction: column;
@@ -91,9 +92,39 @@ button.active {
   text-align: center;
 }
 .statsTitle {
+  margin-top: 2rem;
   align-items: center;
   display: flex;
   justify-content: center;
+  padding: 5px;
+}
+.rowStat {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: transparent;
+}
+.columnItem {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  border: 1px solid white;
+  border-left: 0px;
+  padding: 5px;
+}
+.columnValue {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  width: 60%;
+  border: 1px solid white;
+  border-left: 0px;
+  padding: 5px;
+  border-right: 0px;
+}
+.columnValue > span {
+  margin-left: 1rem;
 }
 
 @media (max-width: 900px) {

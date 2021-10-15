@@ -7,8 +7,7 @@ export const PrivateRoutes = ({
     component: Component,
     ...rest 
 }) => {
-    const { pathname, search  } = rest.location ;
-    console.log({ pathname, search  });
+    
     // localStorage.setItem('pathname', JSON.stringify( pathname ));
     // localStorage.setItem('query', JSON.stringify( search ));
 
