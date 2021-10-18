@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes, { instanceOf } from "prop-types";
 import { getPokes } from '../../../helpers/getPokesApi'
 import { DamageStacs } from './stacs/DamageStacs';
+import { MoveStacs } from './stacs/MoveStacs';
 
 export const TypeStacs = ({ src }) => {
 
@@ -33,10 +34,17 @@ export const TypeStacs = ({ src }) => {
         <div className='typeStacs'>
             {
                 (state.data) ?
-                (<DamageStacs damage={state.data?.damage_relations} />)
-                :
-                null
-                
+                    (<DamageStacs damage={state.data?.damage_relations} />)
+                    :
+                    null
+
+            }
+            {
+                (state.data) ?
+                    (<MoveStacs {...state.data} />)
+                    :
+                    null
+
             }
             {
                 state.error && (<h2>{state.error}</h2>)

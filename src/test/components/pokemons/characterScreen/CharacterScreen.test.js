@@ -17,6 +17,7 @@ describe('test in <CharacterScreen/>', () => {
         global.alert = jest.fn((e) =>
             console.log({ error: e })
         )
+        String.replaceAll = jest.fn()
     })
 
     afterEach(cleanup);

@@ -13,15 +13,15 @@ export const DamageStacs = ({ damage }) => {
                 <h4>Damage Stacs</h4>
             </div>
             {
-                damageArr.map( elem =>
-                    (<ExelColums
-                        key={elem[0]}
-                        item={elem[0]}
-                        values={elem[1]}
-                    />)    
+                damageArr.map(elem =>
+                (<ExelColums
+                    key={elem[0]}
+                    item={elem[0]}
+                    values={elem[1]}
+                />)
                 )
-            }    
-                
+            }
+
         </div>
     )
 }
