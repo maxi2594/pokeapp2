@@ -15,6 +15,11 @@
   margin: 5px;
   padding: 10px;
 }
+@media (max-width: 900px) {
+  .cardStyles {
+    width: 80%;
+  }
+}
 .cardImg {
   width: "150px";
   height: "150px";

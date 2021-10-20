@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import './pokeList.css'
 
 import { PokeCard } from './pokeCard/PokeCard';
 
 
-export const PokeList = ({results}) => {
-    
+export const PokeList = ({ results }) => {
+
     const styles = {
         display: 'flex',
         flexWrap: 'wrap',
@@ -13,19 +14,20 @@ export const PokeList = ({results}) => {
         justifyContent: 'space-around',
     }
     return (
-            <ul style={ styles }>
-
+        <div className="listContainer">
+            <ul style={styles}>
 
                 {
                     results &&
-                    (results.map( character => (
-                        <PokeCard 
-                            {...character }
-                            key={ character.name }
-                            />
+                    (results.map(character => (
+                        <PokeCard
+                            {...character}
+                            key={character.name}
+                        />
                     )))
                 }
             </ul>
+        </div>
     )
 }
 

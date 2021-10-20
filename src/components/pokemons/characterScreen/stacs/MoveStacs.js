@@ -36,11 +36,13 @@ export const MoveStacs = ({
             <div className='movesBox'>
                 {
                     moves.map(elem =>
-                    (<button
-                        // className={(typeStacs.type === elem.type.name) ? 'active' : ''}
-                        key={elem.name}
-                        onClick={() => handleClick(elem)}
-                    >{elem.name}</button>)
+                    (
+                        <button
+                            // className={(typeStacs.type === elem.type.name) ? 'active' : ''}
+
+                            onClick={() => handleClick(elem)}
+                        >{elem.name}</button>
+                    )
                     )
                 }
             </div>

@@ -58,15 +58,11 @@ export const PokeScreen = () => {
                 next={next}
                 previous={previous}
             />
-            {(loading) ?
-                (<LoadIcon />)
-                :
-                (<>
-
-                    <PokeList results={characters} />
-
-                </>
-                )
+            {
+                (loading) ?
+                    (<LoadIcon />)
+                    :
+                    (<PokeList results={characters} />)
             }
             <NavigateButtons
                 handleSetUrL={handleSetUrL}
