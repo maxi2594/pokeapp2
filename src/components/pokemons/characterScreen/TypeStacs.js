@@ -13,20 +13,23 @@ export const TypeStacs = ({ src }) => {
 
 
     useEffect(() => {
-        try {
-            getPokes(src)
-                .then(data =>
-                    setState((s) => ({
-                        ...s,
-                        data: data
-                    }))
-                )
+        if (src !== '') {
 
-        } catch (error) {
-            setState((s) => ({
-                ...s,
-                error: error
-            }))
+            try {
+                getPokes(src)
+                    .then(data =>
+                        setState((s) => ({
+                            ...s,
+                            data: data
+                        }))
+                    )
+
+            } catch (error) {
+                setState((s) => ({
+                    ...s,
+                    error: error
+                }))
+            }
         }
     }, [src]);
 

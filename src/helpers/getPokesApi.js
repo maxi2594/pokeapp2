@@ -8,6 +8,7 @@ export const getPokes = async (url) => {
 
     }
     catch (error) {
+
         throw error
     }
 }

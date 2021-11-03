@@ -35,16 +35,21 @@ describe('test in <CharacterScreen/>', () => {
         expect(wrapper.find('div').length).toEqual(0);
     })
 
-    test('should have content after state update', async () => {
-        await act(async () =>
-            render(
-                <MemoryRouter>
-                    <CharacterScreen />
-                </MemoryRouter>
-            ))
+    test('should have content after state update', (done) => {
 
-        expect(screen.getByText(data.name.toUpperCase()))
-            .toBeInTheDocument();
+        const wrapper = shallow(
+            <MemoryRouter>
+                <CharacterScreen />
+            </MemoryRouter>
+        )
+
+        setTimeout(() => {
+            wrapper.update()
+
+            console.log(wrapper.find('ImageContainer').exists()).toBe(true);
+
+            done()
+        });
     })
 
 })

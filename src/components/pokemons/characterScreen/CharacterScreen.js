@@ -9,7 +9,7 @@ import "./characterScreen.css";
 export const CharacterScreen = () => {
 
     const [data, setData] = useState(null)
-    const [typeStacs, setTypeStacs] = useState({
+    const [type, setType] = useState({
         type: '',
         src: ''
     })
@@ -17,7 +17,7 @@ export const CharacterScreen = () => {
     const { id } = useParams()
 
     const handeSetTypeStac = ({ name, url }) => {
-        setTypeStacs(s => ({
+        setType(s => ({
             type: name,
             src: url
         }))
@@ -29,7 +29,7 @@ export const CharacterScreen = () => {
         data.then(data => {
             setData(data)
             const { types } = data;
-            setTypeStacs((s) => ({
+            setType((s) => ({
                 ...s,
                 type: types[0]?.type.name,
                 src: types[0]?.type.url
@@ -62,7 +62,7 @@ export const CharacterScreen = () => {
                         {
                             data.types.map(elem =>
                             (<button
-                                className={(typeStacs.type === elem.type.name) ? 'active' : ''}
+                                className={(type.type === elem.type.name) ? 'active' : ''}
                                 key={elem.slot}
                                 onClick={() => handeSetTypeStac(elem.type)}
                             >{elem.type.name}</button>)
@@ -70,7 +70,7 @@ export const CharacterScreen = () => {
                         }
                     </div>
                 </div>
-                <TypeStacs src={typeStacs.src} />
+                <TypeStacs src={type.src} />
             </div>
         </div>
 
