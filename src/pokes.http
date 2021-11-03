@@ -5,10 +5,10 @@
 
 # GET https://pokeapi.co/api/v2/pokemon-form/76
 # GET https://pokeapi.co/api/v2/move/88/
-# GET  https://pokeapi.co/api/v2/type/6/
+GET  https://pokeapi.co/api/v2/type/6/
 
 //moves
-GET https://pokeapi.co/api/v2/move/88/
+# GET https://pokeapi.co/api/v2/move/88/
 
 
 
