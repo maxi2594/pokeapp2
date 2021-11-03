@@ -1,9 +1,13 @@
+<<<<<<< HEAD
+=======
+import { func, instanceOf } from 'prop-types';
+>>>>>>> 365dd972c8dba7ba147d324100b1d48fe92bf2af
 import { getPokes, getCharactersData } from '../../helpers/getPokesApi';
 import { fakeData } from '../fakeData/fakeData';
 
 describe('tests in getPokesApi getPokes funcs', () => {
 
-    beforeEach(() =>
+    afterEach(() =>
         jest.clearAllMocks()
     )
 
@@ -23,22 +27,16 @@ describe('tests in getPokesApi getPokes funcs', () => {
 
     test('should getPokes rejection work', async () => {
 
+        global.alert = jest.fn((e) => { })
+        window.fetch.mockImplementationOnce(() => Promise.reject())
 
-        window.fetch = jest.fn((e) =>
-            Promise.reject('API failed to load data')
-        )
+        await expect(() => getPokes('hola'))
+            .rejects
+            .toThrow(`failed`)
 
-        const api = await getPokes('https://pokeapi.co/api/v2/pokemon-form/?limit=5&offset=5');
-        console.log('hola');
-        console.log(api.rejects);
-        expect(fetch).toHaveBeenCalledTimes(1);
-
-        // expect(alert).toHaveBeenCalledTimes(1)
-        // expect(alert).toHaveBeenCalledWith('Error: API failed to load data')
+        expect(fetch).toHaveBeenCalledTimes(1)
 
     })
-
-
 })
 
 describe('tests in getPokesApi getCharactersData funcs', () => {
@@ -65,10 +63,10 @@ describe('tests in getPokesApi getCharactersData funcs', () => {
         window.fetch = jest.fn((url) =>
             Promise.reject('failed to load')
         )
-        const data = await getCharactersData(fakeData.results);
 
-        expect(data instanceof Error).toBe(true)
-        expect(data.message).toBe('fail to load api')
+        await expect(() => getCharactersData(fakeData.results))
+            .rejects
+            .toEqual('failed to load')
 
     })
 

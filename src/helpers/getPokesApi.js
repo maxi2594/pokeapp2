@@ -8,8 +8,12 @@ export const getPokes = async (url) => {
 
     }
     catch (error) {
+<<<<<<< HEAD
 
         throw error
+=======
+        throw Error('failed')
+>>>>>>> 365dd972c8dba7ba147d324100b1d48fe92bf2af
     }
 }
 export const getCharactersData = async (arr) => {
@@ -24,7 +28,7 @@ export const getCharactersData = async (arr) => {
 
     }
     catch (error) {
-        return new Error('fail to load api')
+        throw error
     }
 }
 
