@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 import { func, instanceOf } from 'prop-types';
->>>>>>> 365dd972c8dba7ba147d324100b1d48fe92bf2af
 import { getPokes, getCharactersData } from '../../helpers/getPokesApi';
 import { fakeData } from '../fakeData/fakeData';
 
