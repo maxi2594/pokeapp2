@@ -2,25 +2,19 @@ import { render, screen, act, cleanup } from "@testing-library/react";
 import { shallow } from "enzyme";
 import { MemoryRouter } from "react-router";
 import { CharacterScreen } from "../../../../components/pokemons/characterScreen/CharacterScreen"
+// import { getPokes } from "../../../../helpers/getPokesApi";
 import { data } from "../../../fakeData/fakeData";
+
+
 
 describe('test in <CharacterScreen/>', () => {
 
 
-
     beforeEach(() => {
-        global.fetch = jest.fn(() =>
-            Promise.resolve({
-                json: () => ({ ...data })
-            })
-        )
-        global.alert = jest.fn((e) =>
-            console.log({ error: e })
-        )
         String.replaceAll = jest.fn()
     })
 
-    afterEach(cleanup);
+    afterEach(() => jest.clearAllMocks());
 
 
     test('should show properly', async () => {
@@ -37,6 +31,10 @@ describe('test in <CharacterScreen/>', () => {
 
     test('should have content after state update', (done) => {
 
+        const getPokesApi = jest.mock('../../../../helpers/getPokesApi', () => ({
+            getPokes: jest.fn()
+        }))
+        console.log(getPokesApi.getPokes);
         const wrapper = shallow(
             <MemoryRouter>
                 <CharacterScreen />
@@ -46,7 +44,7 @@ describe('test in <CharacterScreen/>', () => {
         setTimeout(() => {
             wrapper.update()
 
-            console.log(wrapper.find('ImageContainer').exists()).toBe(true);
+            expect(getPokes).toHaveBeenCalled()
 
             done()
         });
