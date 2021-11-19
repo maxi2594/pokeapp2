@@ -4,7 +4,7 @@ import { pokeContext } from '../../context/pokeContext'
 
 export const Navbar = () => {
 
-    const { handleSetUrL }=useContext(pokeContext)
+    const { handleSetUrL } = useContext(pokeContext)
 
     const handleInico = () => {
         handleSetUrL(`https://pokeapi.co/api/v2/pokemon-form/?limit=5&offset=5`);
@@ -13,9 +13,9 @@ export const Navbar = () => {
 
     return (
         <nav className="container-fluid navbar navbar-expand-sm navbar-dark bg-dark">
-            
-            <Link 
-                className="navbar-brand" 
+
+            <Link
+                className="navbar-brand"
                 to="/"
             >
                 Asociaciones
@@ -24,25 +24,25 @@ export const Navbar = () => {
             <div className="navbar-collapse">
                 <div className="navbar-nav">
 
-                    <NavLink 
+                    <NavLink
                         activeClassName="active"
-                        className="nav-item nav-link" 
+                        className="nav-item nav-link"
                         exact
                         to="/pokes"
-                        onClick={ handleInico }
+                        onClick={handleInico}
                     >
                         Inicio
                     </NavLink>
 
 
-                    <NavLink 
+                    {/* <NavLink 
                         activeClassName="active"
                         className="nav-item nav-link" 
                         exact
                         to="/search"
                     >
                         Search
-                    </NavLink>
+                    </NavLink> */}
                 </div>
             </div>
         </nav>
