@@ -25,16 +25,23 @@ export const CharacterScreen = () => {
 
     useEffect(() => {
 
-        const data = getPokes(`https://pokeapi.co/api/v2/pokemon-form/${id}`)
-        data.then(data => {
-            setData(data)
-            const { types } = data;
-            setType((s) => ({
-                ...s,
-                type: types[0]?.type.name,
-                src: types[0]?.type.url
-            }))
-        })
+        try {
+            const data = getPokes(`https://pokeapi.co/api/v2/pokemon-form/${id}`)
+            data.then(data => {
+                setData(data)
+                const { types } = data;
+                setType((s) => ({
+                    ...s,
+                    type: types[0]?.type.name,
+                    src: types[0]?.type.url
+                }))
+            })
+
+        } catch (error) {
+            setData(d => ({ ...d }))
+            setType(t => ({ ...t }))
+        }
+
 
     }, [id])
 

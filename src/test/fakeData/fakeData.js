@@ -97,19 +97,23 @@ export const data = {
         name: "fire",
         url: "https://pokeapi.co/api/v2/type/10/"
       }],
-    moves: [
-      {
-        name: "rock-throw",
-        url: "https://pokeapi.co/api/v2/move/88/"
-      },
-      {
-        name: "rock-slide",
-        url: "https://pokeapi.co/api/v2/move/157/"
-      },
-      {
-        name: "sandstorm",
-        url: "https://pokeapi.co/api/v2/move/201/"
-      }
-    ],
+  },
+  moves: [
+    {
+      name: "rock-throw",
+      url: "https://pokeapi.co/api/v2/move/88/"
+    },
+    {
+      name: "rock-slide",
+      url: "https://pokeapi.co/api/v2/move/157/"
+    },
+    {
+      name: "sandstorm",
+      url: "https://pokeapi.co/api/v2/move/201/"
+    }
+  ],
+  move_damage_class: {
+    name: 'special',
+    url: "https://pokeapi.co/api/v2/move-damage-class/3/"
   }
 }

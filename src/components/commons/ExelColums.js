@@ -15,6 +15,7 @@ export const ExelColums = ({ item, values }) => {
                 {
                     values.map(elem =>
                     (<span
+                        className={item}
                         key={elem.name}
                     >{elem.name}</span>)
                     )

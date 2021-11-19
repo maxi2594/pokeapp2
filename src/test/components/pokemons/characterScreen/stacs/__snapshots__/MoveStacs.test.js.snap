@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test in <MoveStacs /> should render Properly 1`] = `
+<div
+  className="typeStacs"
+>
+  <div
+    className="statsTitle"
+  >
+    <h4>
+      Moves
+    </h4>
+  </div>
+  <ExelColums
+    item="Damage Class"
+    key="special"
+    values={
+      Array [
+        Object {
+          "name": "special",
+          "url": "https://pokeapi.co/api/v2/move-damage-class/3/",
+        },
+      ]
+    }
+  />
+  <div
+    className="movesBox"
+  >
+    <button
+      key="rock-throw"
+      onClick={[Function]}
+    >
+      rock-throw
+    </button>
+    <button
+      key="rock-slide"
+      onClick={[Function]}
+    >
+      rock-slide
+    </button>
+    <button
+      key="sandstorm"
+      onClick={[Function]}
+    >
+      sandstorm
+    </button>
+  </div>
+  <DescriptionBox
+    data={
+      Object {
+        "name": "rock-throw",
+        "url": "https://pokeapi.co/api/v2/move/88/",
+      }
+    }
+  />
+</div>
+`;

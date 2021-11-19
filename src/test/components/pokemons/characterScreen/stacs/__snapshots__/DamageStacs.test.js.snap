@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`prubas en <DamageStacs /> should render properly 1`] = `
+<div
+  className="typeStacs"
+>
+  <div
+    className="statsTitle"
+  >
+    <h4>
+      Damage Stacs
+    </h4>
+  </div>
+  <ExelColums
+    item="double_damage_from"
+    key="double_damage_from"
+    values={
+      Array [
+        Object {
+          "name": "fighting",
+          "url": "https://pokeapi.co/api/v2/type/2/",
+        },
+        Object {
+          "name": "ground",
+          "url": "https://pokeapi.co/api/v2/type/5/",
+        },
+        Object {
+          "name": "steel",
+          "url": "https://pokeapi.co/api/v2/type/9/",
+        },
+        Object {
+          "name": "water",
+          "url": "https://pokeapi.co/api/v2/type/11/",
+        },
+        Object {
+          "name": "grass",
+          "url": "https://pokeapi.co/api/v2/type/12/",
+        },
+      ]
+    }
+  />
+  <ExelColums
+    item="double_damage_to"
+    key="double_damage_to"
+    values={
+      Array [
+        Object {
+          "name": "flying",
+          "url": "https://pokeapi.co/api/v2/type/3/",
+        },
+        Object {
+          "name": "bug",
+          "url": "https://pokeapi.co/api/v2/type/7/",
+        },
+        Object {
+          "name": "fire",
+          "url": "https://pokeapi.co/api/v2/type/10/",
+        },
+      ]
+    }
+  />
+</div>
+`;

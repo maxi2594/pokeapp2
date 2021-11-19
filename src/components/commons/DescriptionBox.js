@@ -14,7 +14,7 @@ export const DescriptionBox = ({ data, description = 'effect' }) => {
 
         getPokes(url)
             .then(data => {
-                const description = entriesLoop(data, 'version_group');
+                const description = entriesLoop(data);
                 setDesc(description)
             })
             .catch(err => console.log(err))
@@ -26,7 +26,8 @@ export const DescriptionBox = ({ data, description = 'effect' }) => {
 
             <span className='title'> {name} </span>
 
-            <p className='descriptionText'>
+            <p data-testid='desc'
+                className='descriptionText'>
                 {desc}
             </p>
         </div>
